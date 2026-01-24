@@ -46,7 +46,7 @@ def extract_invoice_data(file_bytes: bytes, filename: str):
             text_format=schemas.RequestCreate,
             store=False
         )
-        print(response.output_parsed.model_dump())
+        
         return response.output_parsed.model_dump()
 
     except Exception as e:
