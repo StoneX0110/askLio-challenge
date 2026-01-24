@@ -27,6 +27,10 @@ class RequestBase(BaseModel):
     )
     total_cost: float = Field(..., description="The total cost of the offer.")
 
+# --- Prediction Models ---
+class CommodityPrediction(BaseModel):
+    commodity_group_id: str
+
 # --- Creation Models (Input & Extraction) ---
 # Unified model for both API input and AI extraction
 class RequestCreate(RequestBase):

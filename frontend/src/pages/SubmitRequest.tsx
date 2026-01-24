@@ -1,7 +1,6 @@
 import { useState } from "react";
 import { Upload, Plus, Trash2, Loader2, Save } from "lucide-react";
 import { api, type ProcurementRequest, type OrderLine } from "../services/api";
-import { COMMODITY_OPTIONS } from "../services/constants";
 import { cn } from "../lib/utils";
 
 const INITIAL_STATE: ProcurementRequest = {
@@ -10,7 +9,6 @@ const INITIAL_STATE: ProcurementRequest = {
     title: "",
     vendor_name: "",
     vat_id: "",
-    commodity_group_id: "009",
     total_cost: 0,
     order_lines: [],
 };
@@ -165,21 +163,6 @@ export default function SubmitRequest() {
                                 onChange={(e) => updateField("vat_id", e.target.value)}
                                 placeholder="DE123456789"
                             />
-                        </div>
-
-                        <div className="space-y-2">
-                            <label className="text-sm font-medium">Commodity Group</label>
-                            <select
-                                className={cn(INPUT_CLASS, "cursor-pointer")}
-                                value={formData.commodity_group_id}
-                                onChange={(e) => updateField("commodity_group_id", e.target.value)}
-                            >
-                                {Object.entries(COMMODITY_OPTIONS).map(([id, name]) => (
-                                    <option key={id} value={id}>
-                                        {id} - {name}
-                                    </option>
-                                ))}
-                            </select>
                         </div>
                     </div>
                 </section>

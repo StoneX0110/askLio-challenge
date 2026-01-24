@@ -52,3 +52,41 @@ def extract_invoice_data(file_bytes: bytes, filename: str):
     except Exception as e:
         print(f"AI Extraction Error: {e}")
         return None
+
+def predict_commodity_group(request_data: schemas.RequestCreate) -> str:
+    """
+    Predicts the commodity group ID string (e.g. '029') based on the request details.
+    """
+    try:
+        lines_text = "\n".join([f"- {line.description} (Price: {line.total_price})" for line in request_data.order_lines])
+        prompt_text = (
+            f"Title: {request_data.title}\n"
+            f"Vendor: {request_data.vendor_name}\n"
+            f"Requestor: {request_data.requestor_name}\n"
+            f"Items:\n{lines_text}\n\n"
+            f"Based on the above, select the most appropriate Commodity Group ID from the list below:\n"
+            f"{COMMODITY_GROUPS}"
+        )
+
+        response = client.responses.parse(
+            model="gpt-5.2",
+            input=[
+                {
+                    "role": "system",
+                    "content": "You are a procurement expert helper. You only output the Commodity Group ID."
+                },
+                {
+                    "role": "user",
+                    "content": prompt_text
+                }
+            ],
+            text_format=schemas.CommodityPrediction,
+            store=False
+        )
+        prediction = response.output_parsed.commodity_group_id
+        # Extract just the ID if the AI returns "029 - Hardware" (safety check)
+        return prediction.split(":")[0].split(" ")[0].strip()
+        
+    except Exception as e:
+        print(f"Commodity Prediction Error: {e}")
+        return "009" # Default to Miscellaneous on failure

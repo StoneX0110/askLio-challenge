@@ -20,7 +20,7 @@ export interface ProcurementRequest {
     title: string;
     vendor_name: string;
     vat_id: string;
-    commodity_group_id: string;
+    commodity_group_id?: string;
     total_cost: number;
     order_lines: OrderLine[];
 }
