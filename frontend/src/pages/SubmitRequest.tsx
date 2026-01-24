@@ -125,6 +125,7 @@ export default function SubmitRequest() {
                                 className={INPUT_CLASS}
                                 value={formData.requestor_name}
                                 onChange={(e) => updateField("requestor_name", e.target.value)}
+                                required
                                 placeholder="John Doe"
                             />
                         </div>
@@ -134,6 +135,7 @@ export default function SubmitRequest() {
                                 className={INPUT_CLASS}
                                 value={formData.department}
                                 onChange={(e) => updateField("department", e.target.value)}
+                                required
                                 placeholder="Engineering"
                             />
                         </div>
@@ -143,6 +145,7 @@ export default function SubmitRequest() {
                                 className={INPUT_CLASS}
                                 value={formData.vendor_name}
                                 onChange={(e) => updateField("vendor_name", e.target.value)}
+                                required
                                 placeholder="Acme Corp"
                             />
                         </div>
@@ -152,6 +155,7 @@ export default function SubmitRequest() {
                                 className={INPUT_CLASS}
                                 value={formData.title}
                                 onChange={(e) => updateField("title", e.target.value)}
+                                required
                                 placeholder="Annual Software License"
                             />
                         </div>
@@ -161,6 +165,7 @@ export default function SubmitRequest() {
                                 className={INPUT_CLASS}
                                 value={formData.vat_id}
                                 onChange={(e) => updateField("vat_id", e.target.value)}
+                                required
                                 placeholder="DE123456789"
                             />
                         </div>
@@ -203,6 +208,7 @@ export default function SubmitRequest() {
                                                 className={cn(INPUT_CLASS, "h-8")}
                                                 value={line.description}
                                                 onChange={(e) => updateLine(index, "description", e.target.value)}
+                                                required
                                             />
                                         </td>
                                         <td className="p-2">
@@ -211,6 +217,9 @@ export default function SubmitRequest() {
                                                 className={cn(INPUT_CLASS, "h-8")}
                                                 value={line.unit_price}
                                                 onChange={(e) => updateLine(index, "unit_price", parseFloat(e.target.value))}
+                                                required
+                                                min="0.01"
+                                                step="0.01"
                                             />
                                         </td>
                                         <td className="p-2">
@@ -219,6 +228,9 @@ export default function SubmitRequest() {
                                                 className={cn(INPUT_CLASS, "h-8 w-20")}
                                                 value={line.amount}
                                                 onChange={(e) => updateLine(index, "amount", parseFloat(e.target.value))}
+                                                required
+                                                min="0.01"
+                                                step="0.01"
                                             />
                                         </td>
                                         <td className="p-2">
@@ -226,6 +238,8 @@ export default function SubmitRequest() {
                                                 className={cn(INPUT_CLASS, "h-8 w-20")}
                                                 value={line.unit}
                                                 onChange={(e) => updateLine(index, "unit", e.target.value)}
+                                                required
+                                                placeholder="pcs"
                                             />
                                         </td>
                                         <td className="p-2">
@@ -234,6 +248,9 @@ export default function SubmitRequest() {
                                                 className={cn(INPUT_CLASS, "h-8")}
                                                 value={line.total_price}
                                                 onChange={(e) => updateLine(index, "total_price", parseFloat(e.target.value))}
+                                                required
+                                                min="0.01"
+                                                step="0.01"
                                             />
                                         </td>
                                         <td className="p-2 text-right">
@@ -259,6 +276,9 @@ export default function SubmitRequest() {
                                 className={cn(INPUT_CLASS, "text-right font-bold")}
                                 value={formData.total_cost}
                                 onChange={(e) => updateField("total_cost", parseFloat(e.target.value))}
+                                required
+                                min="0.01"
+                                step="0.01"
                             />
                         </div>
                     </div>
