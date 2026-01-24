@@ -1,0 +1,21 @@
+services:
+  backend:
+    build: ./backend
+    container_name: asklio_backend
+    ports:
+      - "8000:8000"
+    environment:
+      - OPENAI_API_KEY=${OPENAI_API_KEY}
+    volumes:
+      - ./backend/app:/app/app
+
+  frontend:
+    build:
+      context: ./frontend
+      args:
+        - VITE_BACKEND_URL=http://localhost:8000
+    container_name: asklio_frontend
+    ports:
+      - "3000:80"
+    depends_on:
+      - backend
