@@ -2,7 +2,7 @@
 
 A modern procurement request application that uses AI to extract data from PDF invoices and manage procurement workflows.
 
-## 🚀 Getting Started
+## Getting Started
 
 The easiest way to run the entire application (frontend, backend, and database) is using **Docker Compose**.
 
@@ -25,14 +25,14 @@ docker compose up --build
 
 ---
 
-## 🛠 Tech Stack
+## Tech Stack
 - **Backend**: FastAPI (Python), SQLAlchemy, SQLite, OpenAI GPT-4o-mini (structured outputs).
 - **Frontend**: React (Vite), TypeScript, Tailwind CSS v4.
 - **Infrastructure**: Docker, Nginx.
 
 ---
 
-## 📋 Future Improvements & Clarifications
+## Future Improvements & Clarifications
 
 The following improvements were identified during development and were not implemented, as they were not part of the original challenge. They would have to be confirmed with the feature requestor:
 
@@ -44,6 +44,3 @@ The current classification relies solely on the commodity group names. To improv
 
 ### 3. User Authentication
 For a production environment, we would have to implement some form of user authentication.
-
-### 4. Database Migration Strategy
-Currently, we use SQLite with `create_all()`. For production, we would switch to PostgreSQL and use **Alembic** for structured database migrations.
