@@ -163,7 +163,8 @@ export default function Dashboard() {
                                                 </div>
                                             </div>
 
-                                            <h4 className="text-sm font-semibold mb-3">Order Lines</h4>
+                                            <h4 className="text-xs font-medium text-muted-foreground uppercase tracking-wider mb-3">Order Lines</h4>
+
                                             <div className="rounded-md border bg-background overflow-hidden">
                                                 <table className="w-full text-sm">
                                                     <thead className="bg-muted/50">
