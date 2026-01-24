@@ -69,19 +69,22 @@ export default function Dashboard() {
 
     return (
         <div className="p-8 pb-20 max-w-7xl mx-auto relative">
-            {/* Simple Toast */}
-            {toast && (
-                <div className={cn(
-                    "fixed top-4 right-4 px-4 py-2 rounded-md shadow-lg text-sm font-medium animate-in slide-in-from-top-2 fade-in duration-300 z-50",
-                    toast.type === "success" ? "bg-green-100 text-green-700 border border-green-200" : "bg-red-100 text-red-700 border border-red-200"
-                )}>
-                    {toast.text}
-                </div>
-            )}
+            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-8">
+                <h1 className="text-3xl font-bold">📊 Procurement Overview</h1>
 
-            <h1 className="text-3xl font-bold mb-8">📊 Procurement Overview</h1>
+
+                {toast && (
+                    <div className={cn(
+                        "px-4 py-2 rounded-md shadow-sm text-sm font-medium animate-in slide-in-from-right-2 fade-in duration-300",
+                        toast.type === "success" ? "bg-green-100 text-green-700 border border-green-200" : "bg-red-100 text-red-700 border border-red-200"
+                    )}>
+                        {toast.text}
+                    </div>
+                )}
+            </div>
 
             <div className="rounded-md border bg-card shadow-sm overflow-hidden">
+
                 <table className="w-full text-sm">
                     <thead className="bg-muted/50">
                         <tr className="border-b transition-colors hover:bg-muted/50 data-[state=selected]:bg-muted">
