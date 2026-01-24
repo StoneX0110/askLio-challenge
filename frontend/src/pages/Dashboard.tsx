@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import { api, type ProcurementRequest } from "../services/api";
 import { cn } from "../lib/utils";
 import { Loader2 } from "lucide-react";
-import { COMMODITY_OPTIONS } from "../services/constants";
+import { COMMODITY_OPTIONS, STATUS_COLORS, STATUS_OPTIONS } from "../services/constants";
 
 // Extended interface with ID and created_at
 interface RequestResponse extends ProcurementRequest {
@@ -11,13 +11,6 @@ interface RequestResponse extends ProcurementRequest {
     status: string;
     created_at: string;
 }
-
-const STATUS_COLORS: Record<string, string> = {
-    "Open": "bg-blue-100 text-blue-700",
-    "In Progress": "bg-yellow-100 text-yellow-700",
-    "Closed": "bg-green-100 text-green-700",
-    "Rejected": "bg-red-100 text-red-700",
-};
 
 export default function Dashboard() {
     const [requests, setRequests] = useState<RequestResponse[]>([]);
@@ -136,10 +129,10 @@ export default function Dashboard() {
                                             value={req.status}
                                             onChange={(e) => handleStatusChange(req.id, e.target.value)}
                                         >
-                                            <option value="Open">Open</option>
-                                            <option value="In Progress">In Progress</option>
-                                            <option value="Closed">Closed</option>
-                                            <option value="Rejected">Rejected</option>
+                                            {STATUS_OPTIONS.map(status => (
+                                                <option key={status} value={status} className="bg-white text-gray-900">{status}</option>
+                                            ))}
+
                                         </select>
                                     </td>
                                 </tr>
