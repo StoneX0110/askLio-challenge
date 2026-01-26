@@ -21,12 +21,11 @@ docker compose up --build
 
 - **Frontend**: [http://localhost:3000](http://localhost:3000)
 - **Backend API**: [http://localhost:8000](http://localhost:8000)
-- **API Documentation**: [http://localhost:8000/docs](http://localhost:8000/docs)
 
 ---
 
 ## Tech Stack
-- **Backend**: FastAPI (Python), SQLAlchemy, SQLite, OpenAI GPT-4o-mini (structured outputs).
+- **Backend**: FastAPI (Python), SQLAlchemy, SQLite, OpenAI GPT-5.2 (structured outputs).
 - **Frontend**: React (Vite), TypeScript, Tailwind CSS v4.
 - **Infrastructure**: Docker, Nginx.
 
