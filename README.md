@@ -44,3 +44,9 @@ The current classification relies solely on the commodity group names. To improv
 
 ### 3. User Authentication
 For a production environment, we would have to implement some form of user authentication.
+
+### 4. Sort and Filter Requests
+The admin dashboard should provide options to sort and filter the columns for better overview, when the number of requests increases.
+
+### 5. Export Function
+The admin dashboard could provide the functionality to export all requests to, e.g., a csv file.
