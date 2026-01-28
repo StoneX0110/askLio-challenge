@@ -21,12 +21,11 @@ docker compose up --build
 
 - **Frontend**: [http://localhost:3000](http://localhost:3000)
 - **Backend API**: [http://localhost:8000](http://localhost:8000)
-- **API Documentation**: [http://localhost:8000/docs](http://localhost:8000/docs)
 
 ---
 
 ## Tech Stack
-- **Backend**: FastAPI (Python), SQLAlchemy, SQLite, OpenAI GPT-4o-mini (structured outputs).
+- **Backend**: FastAPI (Python), SQLAlchemy, SQLite, OpenAI GPT-5.2 (structured outputs).
 - **Frontend**: React (Vite), TypeScript, Tailwind CSS v4.
 - **Infrastructure**: Docker, Nginx.
 
@@ -44,3 +43,9 @@ The current classification relies solely on the commodity group names. To improv
 
 ### 3. User Authentication
 For a production environment, we would have to implement some form of user authentication.
+
+### 4. Sort and Filter Requests
+The admin dashboard should provide options to sort and filter the columns for better overview, when the number of requests increases.
+
+### 5. Export Function
+The admin dashboard could provide the functionality to export all requests to, e.g., a csv file.
