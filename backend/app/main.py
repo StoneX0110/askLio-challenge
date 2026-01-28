@@ -35,10 +35,7 @@ async def extract_data(file: UploadFile = File(...)):
 
 @app.post("/requests/", response_model=schemas.RequestResponse)
 def create_request(request: schemas.RequestCreate, db: Session = Depends(database.get_db)):
-    # Predict Commodity Group
-    if not request.commodity_group_id:
-        predicted_group = services.predict_commodity_group(request)
-        request.commodity_group_id = predicted_group
+    request.commodity_group_id = services.predict_commodity_group(request)
 
     # Create the main request object
     db_request = models.ProcurementRequest(

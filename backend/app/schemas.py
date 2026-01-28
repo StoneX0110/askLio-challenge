@@ -1,7 +1,6 @@
 from pydantic import BaseModel, Field
 from typing import List, Optional
 from datetime import datetime
-from .constants import COMMODITY_GROUPS
 
 # --- Shared Models ---
 class OrderLineBase(BaseModel):
@@ -17,14 +16,7 @@ class RequestBase(BaseModel):
     title: str = Field(..., description="A short, concise title for this request (e.g., 'Adobe Licenses').")
     vendor_name: str = Field(..., description="Name of the company providing the service/product.")
     vat_id: str = Field(..., description="VAT ID (e.g., DE123456789). If not found, return an empty string.")
-    commodity_group_id: Optional[str] = Field(
-        None, 
-        description=(
-            "The best matching ID from the following list: "
-            f"{COMMODITY_GROUPS}"
-            "Use '009' (Miscellaneous) if unsure."
-        )
-    )
+    commodity_group_id: Optional[str] = Field(None, description="Commodity group ID (predicted at submission time)")
     total_cost: float = Field(..., description="The total cost of the offer.")
 
 # --- Prediction Models ---
