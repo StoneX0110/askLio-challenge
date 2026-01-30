@@ -55,12 +55,10 @@ export const STATUS_COLORS: Record<string, string> = {
     "Open": "bg-blue-100 text-blue-700",
     "In Progress": "bg-yellow-100 text-yellow-700",
     "Closed": "bg-green-100 text-green-700",
-    "Rejected": "bg-red-100 text-red-700",
 };
 
 export const STATUS_OPTIONS = [
     "Open",
     "In Progress",
     "Closed",
-    "Rejected"
 ];
